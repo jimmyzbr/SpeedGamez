@@ -1,0 +1,8 @@
+GuideID	StartPoint	EndPoint	ClosePoint	Premise	NextGuide	ClickToNext	CallToNext	CustomEvent	ConditionToNextKey	GuideWindowName	GuideObjectName	GuideItemName	TipContent	TipContentPos	MaskAlpha
+type	Bool	Bool	Bool	String	String	Bool	Bool	StringArray	Bool	String	StringArray	StringArray	String&LocalizedLanguage	Vector3	Float
+note	引导开始点	引导关闭点		前提条件	下一步引导,如果为空,则为下一条记录	是否接收点击去下一步引导	是否接收调用去下一步引导	自定义事件名称	是否自动判断条件去下一步引导	引导的界面名字	高亮显示的对象名字	高亮的Item名字	提示文本内容	提示文本位置	遮罩Alpha
+default	FALSE	FALSE	False	Null	Null	FALSE	FALSE	Null	FALSE	Null	Null	Null	null	0,0,0	0.75
+1	True	False				True	False		False	GuideWindow			xxxx/1		
+2	False	False				True	False		False	MainWindow	Button_Shop		xxxx/2		
+3	False	False				True	False		False	ShopWindow	Button_Close		xxxx/3		
+4	False	True				True	False		False	MainWindow	Button_Start		xxxx/4		

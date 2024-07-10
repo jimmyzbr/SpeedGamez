@@ -1,0 +1,8 @@
+key	value
+type
+note
+default	NoValue
+1	Click to continue
+2	Click to Open Shop
+3	Click to Close shop
+4	Click to start Game
