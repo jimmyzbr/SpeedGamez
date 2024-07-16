@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class ReplaceFont4uGUI : EditorWindow
 {
-    [MenuItem("Tool/替换UI字体")]
+    [MenuItem("Tools/替换UI字体")]
     public static void OpenWindow()
     {
         EditorWindow.GetWindow<ReplaceFont4uGUI>();

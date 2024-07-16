@@ -175,25 +175,6 @@ public static class PackageService
         return Application.dataPath + "/StreamingAssets/" +
                BundleConfigEditorWindow.GetRelativePath(FileTool.RemoveExpandName(path)).ToLower();
     }
-
-    static void CopyFile(string fileName)
-    {
-        string filePath =
-            PathTool.GetAbsolutePath(ResLoadLocation.Resource, fileName + "." + ConfigManager.c_expandName);
-        string exportPath =
-            PathTool.GetAbsolutePath(ResLoadLocation.Streaming, fileName + "." + ConfigManager.c_expandName);
-
-        if (File.Exists(filePath))
-        {
-            Debug.Log("导出 " + exportPath);
-            File.Copy(filePath, exportPath, true);
-        }
-        else
-        {
-            Debug.Log(filePath + " 不存在");
-        }
-    }
-
     public delegate void PackageCallBack(float progress, string content);
 
     #endregion

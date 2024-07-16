@@ -6,10 +6,8 @@ default	资源相对路径
 bundleconfig	config/bundleconfig
 bundleconfig.json	config/bundleconfig.json
 hotupdateconfig	config/hotupdateconfig
-luaconfig	config/luaconfig
 qeqweqwe	config/qeqweqwe
 resourcesconfig	config/resourcesconfig
-sdkconfig	config/sdkconfig
 langdata_english_aa_cc	data/language/english/langdata_english_aa_cc
 langdata_english_xxxx	data/language/english/langdata_english_xxxx
 langdata_afrikaans	data/language/langdata_afrikaans
@@ -20,20 +18,6 @@ execel_demo	data/execel_demo
 guidedata	data/guidedata
 item	data/item
 testdata	data/testdata
-luamain	lua/luamain
-luadatahelper	lualib/framework/data/luadatahelper
-luastatusmanager	lualib/framework/status/luastatusmanager
-luastatusmetatable	lualib/framework/status/luastatusmetatable
-luauimanager	lualib/framework/ui/luauimanager
-luauiwindowmetatable	lualib/framework/ui/luauiwindowmetatable
-luaupdate	lualib/framework/update/luaupdate
-luaframeworkeventname	lualib/framework/luaframeworkeventname
-luaunitydefine	lualib/unity/luaunitydefine
-luaeventdispatcher	lualib/luaeventdispatcher
-luaformattools	lualib/luaformattools
-luajson	lualib/luajson
-luaprinttable	lualib/luaprinttable
-luastringhelper	lualib/luastringhelper
 gameobject 1	prefab/gameobject 1
 gameobject 2	prefab/gameobject 2
 gameobject	prefab/gameobject

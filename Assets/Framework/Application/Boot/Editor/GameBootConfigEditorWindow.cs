@@ -10,7 +10,7 @@ namespace HDJ.Framework.Core
 {
     public class GameBootConfigEditorWindow : EditorWindow
     {
-        [MenuItem("Tool/游戏框架设置管理(0)", priority = 0)]
+        [MenuItem("Tools/游戏框架设置管理(0)", priority = 0)]
         private static void OpenWindow()
         {
             GameBootConfigEditorWindow win = GetWindow<GameBootConfigEditorWindow>();

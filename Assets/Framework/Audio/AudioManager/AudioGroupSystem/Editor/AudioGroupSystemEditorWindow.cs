@@ -9,7 +9,7 @@ public class AudioGroupSystemEditorWindow : EditorWindow
 {
     private const string SaveDir = "Assets/Resources/GameConfigs/AudioGroupConfig/";
 
-    [MenuItem("Tool/音乐组系统")]
+    [MenuItem("Tools/音乐组系统")]
     private static void OpenWindow()
     {
         AudioGroupSystemEditorWindow win = GetWindow<AudioGroupSystemEditorWindow>();

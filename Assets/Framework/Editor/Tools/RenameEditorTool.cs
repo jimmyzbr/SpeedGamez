@@ -8,7 +8,7 @@ public class RenameEditorTool : EditorWindow
 {
     private static RenameEditorTool win;
 
-    [MenuItem("Tool/批量重命名")]
+    [MenuItem("Tools/批量重命名")]
     public static void ShowWindow()
     {
         win = EditorWindow.GetWindow<RenameEditorTool>();

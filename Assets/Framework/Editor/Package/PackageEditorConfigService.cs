@@ -66,7 +66,7 @@ public class PackageEditorConfigService
     static void LoadPackageEditorConfig()
     {
         Dictionary<string, object> final =
-            ConfigEditorWindow.GetEditorConfigData(BundleConfigEditorWindow.c_configFileName);
+            EditorConfig.GetEditorConfigData(BundleConfigEditorWindow.c_configFileName);
 
         if (final == null)
         {
@@ -104,7 +104,7 @@ public class PackageEditorConfigService
             JsonTool.List2Json<EditPackageConfig>(bundles)); //Bundle包
 
         //保存编辑器配置文件
-        ConfigEditorWindow.SaveEditorConfigData(BundleConfigEditorWindow.c_configFileName, editorConfig);
+        EditorConfig.SaveEditorConfigData(BundleConfigEditorWindow.c_configFileName, editorConfig);
     }
 
     //重新加载Object

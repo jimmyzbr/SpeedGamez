@@ -1714,7 +1714,7 @@ public class BundleConfigEditorWindow : EditorWindow
                 hotUpdateConfig.Add(HotUpdateManager.c_downLoadPathKey, new SingleField(""));
                 hotUpdateConfig.Add(HotUpdateManager.c_UseTestDownLoadPathKey, new SingleField(false));
 
-                ConfigEditorWindow.SaveData(HotUpdateManager.c_HotUpdateConfigName, hotUpdateConfig);
+                EditorConfig.SaveData(HotUpdateManager.c_HotUpdateConfigName, hotUpdateConfig);
             }
         }
     }
