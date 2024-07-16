@@ -20,14 +20,14 @@ namespace GreatClock.Common.ExcelToSO {
 		private static Regex reg_color32 = new Regex(@"^[A-Fa-f0-9]{8}$");
 		private static Regex reg_color24 = new Regex(@"^[A-Fa-f0-9]{6}$");
 
-		[MenuItem("Tools/BuildExcel/Open Window")]
+		[MenuItem("BuildExcel/Open Window")]
 		static void Excel2ScriptableObject() {
 			ExcelToScriptableObject window = GetWindow<ExcelToScriptableObject>("Process Excel");
 			window.minSize = new Vector2(540f, 320f);
 			window.maxSize = new Vector2(4000f, 4000f);
 		}
 
-		[MenuItem("Tools/BuildExcel/Process All")]
+		[MenuItem("BuildExcel/Process All")]
 		public static void ProcessAll() {
 			ReadsSettings();
 			for (int i = 0, imax = excel_settings.Count; i < imax; i++) {
@@ -104,6 +104,7 @@ namespace GreatClock.Common.ExcelToSO {
 			content.AppendLine();
 			content.AppendLine("using System;");
 			content.AppendLine("using UnityEngine;");
+			content.AppendLine("using Framework;");
 			bool usingCollections = false;
 			if (settings.use_public_items_getter) {
 				usingCollections = true;
@@ -125,7 +126,13 @@ namespace GreatClock.Common.ExcelToSO {
 				indent = "\t";
 			}
 
-			content.AppendLine(string.Format("{0}public partial class {1} : ScriptableObject {{", indent, className));
+			string cfgFileName = RenameSnakeCase(className);
+			className += "Config";
+
+			content.AppendLine(string.Format("{0}public partial class {1} : ScriptableObject , IConfig {{", indent, className));
+			content.AppendLine();
+			content.AppendLine();
+			content.AppendLine(string.Format("{0}\tpublic string Path {{ get {{return \"{1}\";}} }}",indent,cfgFileName));
 			content.AppendLine();
 			if (settings.use_hash_string) {
 				content.AppendLine(string.Format("{0}\t{1}", indent, serializeAttribute));
@@ -735,10 +742,11 @@ namespace GreatClock.Common.ExcelToSO {
 			}
 
 			string assetPath = null;
+			string fileName = RenameSnakeCase(className);
 			if (settings.asset_directory.EndsWith("/")) {
-				assetPath = string.Concat(settings.asset_directory, className, ".asset");
+				assetPath = string.Concat(settings.asset_directory, fileName, ".asset");
 			} else {
-				assetPath = string.Concat(settings.asset_directory, "/", className, ".asset");
+				assetPath = string.Concat(settings.asset_directory, "/", fileName, ".asset");
 			}
 			ScriptableObject obj = AssetDatabase.LoadAssetAtPath(assetPath, typeof(ScriptableObject)) as ScriptableObject;
 			bool isAlreadyExists = true;
@@ -1851,7 +1859,7 @@ namespace GreatClock.Common.ExcelToSO {
 							PingObject(setting.script_directory, setting.excel_name, ".cs");
 							evt.Use();
 						} else if (posAsset.Contains(evt.mousePosition)) {
-							PingObject(setting.asset_directory, setting.excel_name, ".asset");
+							PingObject(setting.asset_directory, RenameSnakeCase(setting.excel_name), ".asset");
 							evt.Use();
 						}
 					}
@@ -2003,7 +2011,7 @@ namespace GreatClock.Common.ExcelToSO {
 					posAsset.width = 120f;
 					if (evt.clickCount == 2) {
 						if (posAsset.Contains(evt.mousePosition)) {
-							PingObject(slave.asset_directory, slave.excel_name, ".asset");
+							PingObject(slave.asset_directory, RenameSnakeCase(slave.excel_name), ".asset");
 							evt.Use();
 						}
 					}
@@ -2343,7 +2351,7 @@ namespace GreatClock.Common.ExcelToSO {
 			string className = Path.GetFileNameWithoutExtension(setting.excel_name);
 			ret.excel_path = setting.excel_name;
 			ret.asset_directory = setting.asset_directory;
-			ret.class_name = string.IsNullOrEmpty(setting.name_space) ? className : (setting.name_space + "." + className);
+			ret.class_name = (string.IsNullOrEmpty(setting.name_space) ? className : (setting.name_space + "." + className)) + "Config";
 			ret.use_hash_string = setting.use_hash_string;
 			ret.compress_color_into_int = setting.compress_color_into_int;
 			ret.treat_unknown_types_as_enum = setting.treat_unknown_types_as_enum;
@@ -2469,7 +2477,33 @@ namespace GreatClock.Common.ExcelToSO {
 				EditorGUIUtility.PingObject(obj);
 			}
 		}
-
+		
+        /// <summary>将大驼峰命名转为蛇形命名</summary>
+        public static string RenameSnakeCase(string str)
+        {
+            var builder = new StringBuilder();
+            var name = str;
+            var previousUpper = false;
+            for (var i = 0; i < name.Length; i++)
+            {
+                var c = name[i];
+                if (char.IsUpper(c))
+                {
+                    if (i > 0 && !previousUpper)
+                    {
+                        builder.Append("_");
+                    }
+                    builder.Append(char.ToLowerInvariant(c));
+                    previousUpper = true;
+                }
+                else
+                {
+                    builder.Append(c);
+                    previousUpper = false;
+                }
+            }
+            return builder.ToString();
+        }
 	}
 
 	[Serializable]
