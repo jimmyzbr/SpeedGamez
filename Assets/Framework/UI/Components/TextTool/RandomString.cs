@@ -30,7 +30,7 @@ public class RandomString : MonoBehaviour
             }
 
             string[] subString = ResourceManager.LoadText(subStringList[i]).Split(splitChar);
-            ResourceManager.DestoryAssetsCounter(subStringList[i]);
+            ResourceManager.DestroyAssetsCounter(subStringList[i]);
             subStringsData.Add(subStringList[i], subString);
         }
     }

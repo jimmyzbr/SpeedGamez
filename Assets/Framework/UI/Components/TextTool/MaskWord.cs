@@ -34,7 +34,7 @@ public class MaskWord : MonoBehaviour
         }
 
         SentiWords = ResourceManager.LoadText(textName).Split(splitChar);
-        ResourceManager.DestoryAssetsCounter(textName);
+        ResourceManager.DestroyAssetsCounter(textName);
         for (int i = 0; i < SentiWords.Length; i++)
         {
             if (SentiWords[i].Contains("\n"))

@@ -70,7 +70,7 @@ public class DataManager
     {
         foreach (var item in s_dataCache.Keys)
         {
-            ResourceManager.DestoryAssetsCounter(item);
+            ResourceManager.DestroyAssetsCounter(item);
         }
 
         s_dataCache.Clear();

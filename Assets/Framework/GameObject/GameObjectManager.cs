@@ -269,7 +269,7 @@ public class GameObjectManager
         if (createPools.ContainsKey(key) && createPools[key].ContainsKey(go.GetInstanceID()))
         {
             createPools[key].Remove(go.GetInstanceID());
-            //ResourceManager.DestoryAssetsCounter(go.name);
+            //ResourceManager.DestroyAssetsCounter(go.name);
         }
         else
         {
@@ -304,7 +304,7 @@ public class GameObjectManager
             }
         }
 
-        ResourceManager.DestoryAssetsCounter(go.name);
+        ResourceManager.DestroyAssetsCounter(go.name);
         UnityEngine.Object.Destroy(go);
     }
 
@@ -332,7 +332,7 @@ public class GameObjectManager
             if (createPools[name].Count == 0)
             {
                 removeObjList.Add(name);
-                //Debug.Log("Pool DestoryAssetsCounter :" + name);
+                //Debug.Log("Pool DestroyAssetsCounter :" + name);
             }
         }
 
@@ -353,7 +353,7 @@ public class GameObjectManager
                     po.OnObjectDestroy();
                 }
 
-                ResourceManager.DestoryAssetsCounter(name);
+                ResourceManager.DestroyAssetsCounter(name);
                 UnityEngine.Object.Destroy(go);
             }
 
@@ -391,7 +391,7 @@ public class GameObjectManager
         if (createPools[name].Count == 0)
         {
             createPools.Remove(name);
-            ResourceManager.DestoryAssetsCounter(name);
+            ResourceManager.DestroyAssetsCounter(name);
         }
     }
 

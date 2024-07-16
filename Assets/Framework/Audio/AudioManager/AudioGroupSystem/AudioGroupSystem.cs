@@ -120,7 +120,7 @@ public class AudioGroupSystem : MonoBehaviour
         TextAsset asset = ResourceManager.Load<TextAsset>(ConfigName);
 
         List<AudioGroupData> datas = JsonUtils.FromJson<List<AudioGroupData>>(asset.text);
-        ResourceManager.DestoryAssetsCounter(ConfigName);
+        ResourceManager.DestroyAssetsCounter(ConfigName);
         audioGroupDataDic.Clear();
         foreach (var item in datas)
         {

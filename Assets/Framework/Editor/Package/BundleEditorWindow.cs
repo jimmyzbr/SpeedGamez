@@ -92,7 +92,7 @@ public class BundleEditorWindow : EditorWindow
     {
         GUILayout.Space(10);
 
-        if (!ConfigManager.GetIsExistConfig(HotUpdateManager.c_HotUpdateConfigName))
+        if (!ConfigManager.IsConfigExist(HotUpdateManager.c_HotUpdateConfigName))
         {
             if (GUILayout.Button("热更新设置初始化"))
             {

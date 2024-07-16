@@ -90,7 +90,7 @@ public class AudioPlayerBase
         {
             string name = asset.AssetName;
             asset.audioSource.clip = null;
-            ResourceManager.DestoryAssetsCounter(name);
+            ResourceManager.DestroyAssetsCounter(name);
         }
     }
 

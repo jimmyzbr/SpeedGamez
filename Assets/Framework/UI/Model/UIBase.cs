@@ -1096,7 +1096,7 @@ public class UIBase : MonoBehaviour, UILifeCycleInterface
             int num = item.Value;
             //if (item.Key == "CLT_border_TagBg_Hunter")
             //    Debug.Log("UIBase 回收图片：" + item.Key + ":" + num);
-            ResourceManager.DestoryAssetsCounter(item.Key, num);
+            ResourceManager.DestroyAssetsCounter(item.Key, num);
         }
 
         loadSpriteNames.Clear();

@@ -6,8 +6,12 @@
 
 using System;
 using UnityEngine;
+using Framework;
 
-public partial class ExecelDemo : ScriptableObject {
+public partial class ExecelDemoConfig : ScriptableObject , IConfig {
+
+
+	public string Path { get {return "execel_demo";} }
 
 	public enum eGender {
 		Default, Male, Female
@@ -106,8 +110,8 @@ public class Student {
 	public string name { get { return _Name; } }
 
 	[SerializeField, HideInInspector]
-	private ExecelDemo.eGender _Gender;
-	public ExecelDemo.eGender gender { get { return _Gender; } }
+	private ExecelDemoConfig.eGender _Gender;
+	public ExecelDemoConfig.eGender gender { get { return _Gender; } }
 
 	[SerializeField, HideInInspector]
 	private string _Nationality;
@@ -154,9 +158,9 @@ public class Student {
 	[NonSerialized]
 	private int mVersion = 0;
 	[NonSerialized]
-	private ExecelDemo.IDataGetter mGetter;
+	private ExecelDemoConfig.IDataGetter mGetter;
 
-	public Student Init(int version, ExecelDemo.IDataGetter getter) {
+	public Student Init(int version, ExecelDemoConfig.IDataGetter getter) {
 		if (mVersion == version) { return this; }
 		mGetter = getter;
 		_Father_ = getter.GetParent(_Father);
@@ -193,8 +197,8 @@ public class Parent {
 	public string name { get { return _Name; } }
 
 	[SerializeField, HideInInspector]
-	private ExecelDemo.eRelationship _Relationship;
-	public ExecelDemo.eRelationship relationship { get { return _Relationship; } }
+	private ExecelDemoConfig.eRelationship _Relationship;
+	public ExecelDemoConfig.eRelationship relationship { get { return _Relationship; } }
 
 	[SerializeField, HideInInspector]
 	private string _Telephone;
@@ -203,9 +207,9 @@ public class Parent {
 	[NonSerialized]
 	private int mVersion = 0;
 	[NonSerialized]
-	private ExecelDemo.IDataGetter mGetter;
+	private ExecelDemoConfig.IDataGetter mGetter;
 
-	public Parent Init(int version, ExecelDemo.IDataGetter getter) {
+	public Parent Init(int version, ExecelDemoConfig.IDataGetter getter) {
 		if (mVersion == version) { return this; }
 		mGetter = getter;
 		mVersion = version;

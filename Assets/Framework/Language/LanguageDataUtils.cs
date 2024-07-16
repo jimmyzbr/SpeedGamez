@@ -39,7 +39,7 @@ public class LanguageDataUtils
             LanguageSettingConfig config;
 
             string json = ResourceManager.LoadText(LanguageManager.c_configFileName);
-            ResourceManager.DestoryAssetsCounter(LanguageManager.c_configFileName);
+            ResourceManager.DestroyAssetsCounter(LanguageManager.c_configFileName);
             if (!string.IsNullOrEmpty(json))
                 config = JsonUtils.FromJson<LanguageSettingConfig>(json);
             else

@@ -163,7 +163,7 @@ public class PreloadManager : MonoBehaviour
                         Debug.LogError("Error： 预加载失败  key：" + da.m_key);
                     }
                     else
-                        ResourceManager.DestoryAssetsCounter(da.m_key);
+                        ResourceManager.DestroyAssetsCounter(da.m_key);
                 }
 
                 RunCallBack();

@@ -299,7 +299,7 @@ public class LanguageManager
 
         foreach (var item in loadTextFileTimesDic)
         {
-            ResourceManager.DestoryAssetsCounter(item.Key, item.Value);
+            ResourceManager.DestroyAssetsCounter(item.Key, item.Value);
         }
 
         loadTextFileTimesDic.Clear();

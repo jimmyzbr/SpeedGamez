@@ -16,6 +16,7 @@ langdata_afrikaans	data/language/langdata_afrikaans
 langdata_arabic	data/language/langdata_arabic
 langdata_chinesesimplified	data/language/langdata_chinesesimplified
 languageconfig	data/language/languageconfig
+execel_demo	data/execel_demo
 guidedata	data/guidedata
 item	data/item
 testdata	data/testdata

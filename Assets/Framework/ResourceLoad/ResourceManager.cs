@@ -101,7 +101,7 @@ public static class ResourceManager
 
     /// <summary>
     /// 加载资源
-    /// 注意释放资源，方法： DestoryAssetsCounter
+    /// 注意释放资源，方法： DestroyAssetsCounter
     /// </summary>
     /// <typeparam name="T"></typeparam>
     /// <param name="name"></param>
@@ -146,12 +146,12 @@ public static class ResourceManager
     /// </summary>
     /// <param name="unityObject"></param>
     /// <param name="times"></param>
-    public static void DestoryAssetsCounter(Object unityObject, int times = 1)
+    public static void DestroyAssetsCounter(Object unityObject, int times = 1)
     {
-        DestoryAssetsCounter(unityObject.name, times);
+        DestroyAssetsCounter(unityObject.name, times);
     }
 
-    public static void DestoryAssetsCounter(string name, int times = 1)
+    public static void DestroyAssetsCounter(string name, int times = 1)
     {
         if (!ResourcesConfigManager.GetIsExitRes(name))
             return;
@@ -160,7 +160,7 @@ public static class ResourceManager
             times = 1;
         for (int i = 0; i < times; i++)
         {
-            loadAssetsController.DestoryAssetsCounter(path);
+            loadAssetsController.DestroyAssetsCounter(path);
         }
     }
 

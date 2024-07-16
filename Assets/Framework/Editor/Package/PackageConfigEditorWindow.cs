@@ -1705,7 +1705,7 @@ public class BundleConfigEditorWindow : EditorWindow
 
     void HotUpdateConfigGUI()
     {
-        if (!ConfigManager.GetIsExistConfig(HotUpdateManager.c_HotUpdateConfigName))
+        if (!ConfigManager.IsConfigExist(HotUpdateManager.c_HotUpdateConfigName))
         {
             if (GUILayout.Button("热更新设置初始化"))
             {

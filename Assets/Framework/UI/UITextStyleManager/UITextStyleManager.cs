@@ -25,7 +25,7 @@ public class UITextStyleManager
         if (Application.isPlaying)
         {
             text = ResourceManager.LoadText(FileName);
-            ResourceManager.DestoryAssetsCounter(FileName);
+            ResourceManager.DestroyAssetsCounter(FileName);
         }
         else
         {

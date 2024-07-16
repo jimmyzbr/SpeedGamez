@@ -206,7 +206,7 @@ public class AssetsLoadController
     /// 资源引用数减少（该资源的依赖也会减少）
     /// </summary>
     /// <param name="path"></param>
-    public void DestoryAssetsCounter(string path)
+    public void DestroyAssetsCounter(string path)
     {
         if (assetsCaches.ContainsKey(path))
         {
@@ -227,7 +227,7 @@ public class AssetsLoadController
             //Debug.LogWarning("DestoryAssets:" + name + "=>" + string.Join("\n", dependenciesNames));
             foreach (var item in dependenciesNames)
             {
-                DestoryAssetsCounter(item);
+                DestroyAssetsCounter(item);
             }
         }
         else
