@@ -7,6 +7,7 @@
 using System;
 using UnityEngine;
 using Framework;
+using System.Collections.Generic;
 
 public partial class ExecelDemoConfig : ScriptableObject , IConfig {
 
@@ -24,8 +25,17 @@ public partial class ExecelDemoConfig : ScriptableObject , IConfig {
 	[NonSerialized]
 	private int mVersion = 1;
 
-	[SerializeField, HideInInspector]
+	[SerializeField]
 	private Student[] _StudentItems;
+
+	public Student[] _StudentArray => _StudentItems;
+	public int GetStudentItems(List<Student> items) {
+		int len = _StudentItems.Length;
+		for (int i = 0; i < len; i++) {
+			items.Add(_StudentItems[i].Init(mVersion, DataGetterObject));
+		}
+		return len;
+	}
 
 	public Student GetStudent(int id) {
 		int min = 0;
@@ -43,8 +53,17 @@ public partial class ExecelDemoConfig : ScriptableObject , IConfig {
 		return null;
 	}
 
-	[SerializeField, HideInInspector]
+	[SerializeField]
 	private Parent[] _ParentItems;
+
+	public Parent[] _ParentArray => _ParentItems;
+	public int GetParentItems(List<Parent> items) {
+		int len = _ParentItems.Length;
+		for (int i = 0; i < len; i++) {
+			items.Add(_ParentItems[i].Init(mVersion, DataGetterObject));
+		}
+		return len;
+	}
 
 	private Parent GetParent(string parent_id) {
 		int min = 0;
@@ -101,23 +120,23 @@ public partial class ExecelDemoConfig : ScriptableObject , IConfig {
 [Serializable]
 public class Student {
 
-	[SerializeField, HideInInspector]
+	[SerializeField]
 	private int _Id;
 	public int id { get { return _Id; } }
 
-	[SerializeField, HideInInspector]
+	[SerializeField]
 	private string _Name;
 	public string name { get { return _Name; } }
 
-	[SerializeField, HideInInspector]
+	[SerializeField]
 	private ExecelDemoConfig.eGender _Gender;
 	public ExecelDemoConfig.eGender gender { get { return _Gender; } }
 
-	[SerializeField, HideInInspector]
+	[SerializeField]
 	private string _Nationality;
 	public string nationality { get { return _Nationality; } }
 
-	[SerializeField, HideInInspector]
+	[SerializeField]
 	private string _Father;
 	private Parent _Father_;
 	public Parent father {
@@ -126,7 +145,7 @@ public class Student {
 		}
 	}
 
-	[SerializeField, HideInInspector]
+	[SerializeField]
 	private string _Mother;
 	private Parent _Mother_;
 	public Parent mother {
@@ -135,23 +154,23 @@ public class Student {
 		}
 	}
 
-	[SerializeField, HideInInspector]
+	[SerializeField]
 	private int _Grade;
 	public int grade { get { return _Grade; } }
 
-	[SerializeField, HideInInspector]
+	[SerializeField]
 	private int _Class_level;
 	public int class_level { get { return _Class_level; } }
 
-	[SerializeField, HideInInspector]
+	[SerializeField]
 	private string _Birthday;
 	public string birthday { get { return _Birthday; } }
 
-	[SerializeField, HideInInspector]
+	[SerializeField]
 	private int[] _Favourite_numbers;
 	public int[] favourite_numbers { get { return _Favourite_numbers; } }
 
-	[SerializeField, HideInInspector]
+	[SerializeField]
 	private string[] _Hobbies;
 	public string[] hobbies { get { return _Hobbies; } }
 
@@ -188,19 +207,19 @@ public class Student {
 [Serializable]
 public class Parent {
 
-	[SerializeField, HideInInspector]
+	[SerializeField]
 	private string _Parent_id;
 	public string parent_id { get { return _Parent_id; } }
 
-	[SerializeField, HideInInspector]
+	[SerializeField]
 	private string _Name;
 	public string name { get { return _Name; } }
 
-	[SerializeField, HideInInspector]
+	[SerializeField]
 	private ExecelDemoConfig.eRelationship _Relationship;
 	public ExecelDemoConfig.eRelationship relationship { get { return _Relationship; } }
 
-	[SerializeField, HideInInspector]
+	[SerializeField]
 	private string _Telephone;
 	public string telephone { get { return _Telephone; } }
 

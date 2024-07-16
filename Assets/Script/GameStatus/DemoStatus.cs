@@ -7,10 +7,10 @@ public class DemoStatus : IApplicationStatus
     public override void OnEnterStatus()
     {
         //test load cfg
-        // var cfg = ConfigManager.Get<ExecelDemoConfig>();
-        // Debug.Log(cfg.GetStudent(19911307));
-        // ConfigManager.UnLoad<ExecelDemoConfig>();
-        // Debug.Log(cfg.GetStudent(19911307));
+        var cfg = ConfigManager.Get<ExecelDemoConfig>();
+        Debug.Log(cfg.GetStudent(19911307));
+        ConfigManager.UnLoad<ExecelDemoConfig>();
+        Debug.Log(cfg.GetStudent(19911307));
         
         GuideSyetem.Instance.Start();
         OpenUI<MainWindow>();
