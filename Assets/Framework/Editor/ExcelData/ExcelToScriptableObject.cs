@@ -173,7 +173,7 @@ namespace GreatClock.Common.ExcelToSO {
 				content.AppendLine(string.Format("{0}\t{1}", indent, serializeAttribute));
 				content.AppendLine(string.Format("{0}\tprivate {1}[] _{1}Items;", indent, sheet.itemClassName));
 				content.AppendLine();
-				content.AppendLine(string.Format("{0}\tpublic {1}[] _{1}Array => _{1}Items;", indent, sheet.itemClassName));
+				content.AppendLine(string.Format("{0}\tpublic {1}[] {1}Array => _{1}Items;", indent, sheet.itemClassName));
 				
 				if (settings.use_public_items_getter) {
 					content.AppendLine(string.Format("{0}\tpublic int Get{1}Items(List<{1}> items) {{", indent, sheet.itemClassName));

@@ -28,7 +28,7 @@ public partial class ExecelDemoConfig : ScriptableObject , IConfig {
 	[SerializeField]
 	private Student[] _StudentItems;
 
-	public Student[] _StudentArray => _StudentItems;
+	public Student[] StudentArray => _StudentItems;
 	public int GetStudentItems(List<Student> items) {
 		int len = _StudentItems.Length;
 		for (int i = 0; i < len; i++) {
@@ -56,7 +56,7 @@ public partial class ExecelDemoConfig : ScriptableObject , IConfig {
 	[SerializeField]
 	private Parent[] _ParentItems;
 
-	public Parent[] _ParentArray => _ParentItems;
+	public Parent[] ParentArray => _ParentItems;
 	public int GetParentItems(List<Parent> items) {
 		int len = _ParentItems.Length;
 		for (int i = 0; i < len; i++) {
